@@ -11,7 +11,8 @@ namespace PlatformService.Db.Data
         /// <param name="dbContext"></param>
         public static async Task SeedData(IServiceProvider serviceProvider)
         {
-            using var dbContext = serviceProvider.GetRequiredService<AppDbContext>();
+            using var scope = serviceProvider.CreateScope();
+            using var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
             if (dbContext.Platforms.Any())
             {
@@ -20,6 +21,7 @@ namespace PlatformService.Db.Data
 
             var platforms = GetPlatforms();
             await dbContext.AddRangeAsync(platforms);
+            await dbContext.SaveChangesAsync();
         }
 
         private static IEnumerable<Platform> GetPlatforms()

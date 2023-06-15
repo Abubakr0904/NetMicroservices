@@ -9,7 +9,10 @@ public sealed class RequiredStringNotEmptyAndWhiteSpaceAttribute : ValidationAtt
     {
         if (value is string stringValue)
         {
-            return !string.IsNullOrWhiteSpace(stringValue);
+            var isValid = !string.IsNullOrWhiteSpace(stringValue);
+            if (!isValid)
+                ErrorMessage = "The value is null or empty or contains only white spaces.";
+            return isValid;
         }
 
         return false;

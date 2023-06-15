@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\PlatformService.Domain\PlatformService.Domain.csproj" />
     <ProjectReference Include="..\PlatformService.Repository\PlatformService.Repository.csproj" />
+    <ProjectReference Include="..\PlatformService.Services\PlatformService.Services.csproj" />
   </ItemGroup>
 
 </Project>
