@@ -7,7 +7,7 @@ using PlatformService.DependecyInjector;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(options
-    => options.UseSqlite(builder.Configuration.GetConnectionString("SqliteConnection")));
+    => options.UseInMemoryDatabase(builder.Configuration.GetConnectionString("InMemoryConnection")));
 
 builder.Services.InitializeDependencies();
 

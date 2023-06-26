@@ -1,0 +1,6 @@
+{
+    "dotnet.defaultSolution": "PlatformService.sln",
+    "editor.tabCompletion": "on",
+    "diffEditor.codeLens": true,
+    "MutableAI.upsell": true
+}
