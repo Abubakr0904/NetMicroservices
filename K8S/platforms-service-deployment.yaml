@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: platforms-service-deployment
+spec:
+  replicas: 1 #number of instances, for example, we can put 3 or 5 here too.
+  selector:
+    matchLabels:
+      app: platformsservice
+  template:
+    metadata:
+      labels:
+        app: platformsservice
+    spec:
+      containers:
+        - name: platformsservice
+          image: abubakr0904/platformservice:latest
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+
